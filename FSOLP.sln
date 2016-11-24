@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5AE8CB91-BBCC-4E75-90B2-D166D82818F5}"
 	ProjectSection(SolutionItems) = preProject
 		Backlog.txt = Backlog.txt
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSOLP", "FSOLP\FSOLP.fsproj", "{B02991CC-0420-4EC0-9929-1974DA681682}"
