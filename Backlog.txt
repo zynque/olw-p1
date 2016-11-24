@@ -1,0 +1,126 @@
+
+Prioritized Backlog
+---------------------------------------
+
+	Story: users can edit item by clicking mouse on it after selected
+	Bug: Indexes are not generated safely - nested save/load pairs can generate infinite loop on load
+	     due to non-unique indices.
+	Story: Navigate to definition of selected item (ctrl enter?)
+	Story: Editable boxes,columns,rows with text content
+	(move definitions to classes where appropriate?)
+	Story: make simple math expressions editable
+	Story: optimize add/remove from list of parents/children (currently o(n)?)
+	Story: generate errors as entities containing error messages, context, etc...
+	Story: primitive for unit tests of renderers... (requires equality?)
+
+	Milestone Goal: FSOLP can define itself in terms of phrases
+	Milestone Goal: FSOLP can write out its own F# source code
+	Milestone Goal: FSOLP can write out its own Scala source code
+
+
+Unprioritized Backlog
+---------------------------------------
+
+Editor progression "drilling in"
+	- for a given phrase instance a user can click a button to edit its value,
+	  click another button to edit its definition
+	  within a definition, a user can drill into user defined types, or even
+	  primitive types & edit their definitions
+
+Traditional language features
+
+	Type system...
+	scope?
+	...
+
+Defining & manipulating phrases
+
+	Story: User defined construct Fields with generic types
+	Story: Allow fields with recursive types
+		- open q: how do we reference & store entities?
+		-      a: simplefirst -> integer indexed array
+		- need a simple type cache, an indexed array of type entities
+	Story: Users can create instances of user-defined simple constructs
+	Story: Users can read/write constructs to/from files
+	Story: Users can edit/create construct definitions
+	Story: Provided a construct definition, users can create instances of that construct
+	Story: Users can view an phrase under a default context inferred from a construct definition
+	Story: Users can view construct context definitions
+	Story: Users can edit/create construct context definitions
+	Story: Users can navigate to the definition of a declared type
+
+Diagram Editor features
+
+    Ongoing: improved formatting (alignment, padding, etc)
+    Epic: html output
+    Epic: A working editor that can input and save graphical entities
+
+Advanced Features
+
+	Story: First-class deltas - be able to refer to and manipulate deltas
+	Story: Be able to merge & resolve change sets
+    Story: Debugging?
+    Story: Code completion
+    Story: Persistent version control
+    Story: Parallelism?
+    Story: Navigation - find usages, go to definition
+    Story: Caching interpretation/compilation at various levels
+           Compile & unit test after every keystroke - that is the dream
+
+
+    * see Scala's List.mkString - do same for arbitrary lists:
+      join with phrase b4, phrase after, and phrase between each item
+    * Code generation
+		* F# gen with WPF
+		* Scala gen with java swing? other ui?
+
+Unit Testing
+
+	Story: add primitive unit test might be:
+			input: Add(3, 4)
+			coreDefault: Expect Add(3, 4)
+			CoreInterpreter: Expect: 7
+			CoreString: Expect 3 + 4
+
+Version management
+	Story: when a change to a language is committed,
+	  enable language writer to make an automatic migration path for existing code
+	Story: all references are pinned to specific version such that updates
+	  to language do not break existing programs
+	  non-breaking change vs. breaking change?
+
+Just for fun
+	Lsystems, csg, other fractals, pixel math, autamata etc...
+	simple pixel games
+	3d wire games
+
+===============================================================================
+
+Completed Tasks:
+-------------------
+	Primitive entities have definitions under varying contexts
+	Contexts must be first class to enable things like an OLP view showing a raw expression on the left and its meaning on the right under a different context...
+	Move remaining type definitions from "PrimitiveEntities" to "PrimitiveEntities2" and cut the old stuff
+	define the metatype phrase...
+	restore simple named construct with primitive fields
+	Move primitive types handling functions to renderers?
+	can edit an int
+	primitive for rendering an expression under chosen context
+	updating a value in an equation causes the value of the equation to be updated
+	a delta stack associated with the editor and undo/redo buttons to navigate through stack
+	phrases keep track of parents
+	on edit, flip dirty bit & that of parent(s) & on render, only rerender dirty stuff
+	Named construct with named fields of (atomic) primitive types
+	Fields with user-defined types
+    diagrams: 1-d columns & rows
+    diagrams: boxes
+    diagrams: arrows
+	strings editable
+	separate concerns: contexts vs. interpreted/quoted phrases
+	users can save phrases to file in readable format
+	users can save phrases to file in numbered node format
+	users can load phrases from file in numbered node format
+	(CLEANUP) simplify phrase model, etc, simplify render func. reorganize..., removed "interpreter" context
+	users can select entities via keyboard & mouse (a box is drawn around selected item)
+	users can edit selected item by pressing enter or starting to type text
+	
